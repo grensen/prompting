@@ -25,6 +25,9 @@ To better understand how this issue affects my results, I need to do some more r
 
 **Negation seems to work against the probability for better prompts.**
 
+## You Can Do It Better ChatGPT!
+Sometimes, when nothing helps, you can motivate the LLM by spamming it with phrases like "you can do better" and reminding the context that the next output will be more like the one you want. 
+
 ## Dont waste time!
 
 Sometimes you might not want to take an LLM for your work. Interpolation and extrapolation are strange terms, where interpolation means what we have now, and extrapolation is the way that somehow goes beyond our frame.
