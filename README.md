@@ -28,6 +28,17 @@ To better understand how this issue affects my results, I need to do some more r
 ## You Can Do It Better ChatGPT!
 Sometimes, when nothing helps, you can motivate the LLM by spamming it with phrases like "you can do better" and reminding the context that the next output will be more like the one you want. 
 
+## Step by Step
+
+<p align="center">
+  <img src="https://github.com/grensen/prompting/blob/main/figures/kaparthy_step_by_step.png?raw=true">
+</p>
+
+Just telling the LLM "explain step by step" can lead to completely different results, as shown in the picture. You can also tell the LLM to be an expert in the field, this can also improve the output. But be careful, in the video it is explained why you should not simply generate an output that is equal to an IQ of 400.
+
+https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2
+
+
 ## Dont waste time!
 
 Sometimes you might not want to take an LLM for your work. Interpolation and extrapolation are strange terms, where interpolation means what we have now, and extrapolation is the way that somehow goes beyond our frame.
