@@ -35,6 +35,7 @@ Probably it is similar to us humans: Negation can lead to misunderstanding and s
 <p align="center">
   <img src="https://github.com/grensen/prompting/blob/main/figures/kaparthy_step_by_step.png?raw=true">
 </p>
+
 [State of GPT with Andrej Karpathy](https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2)
 Just telling the LLM "explain step by step"  can lead to completely different results, as shown in the picture. You can also tell the LLM to be an expert in the field, this can also improve the output. But be careful, in the video it is explained why you should not simply generate an output that is equal to an IQ of 400.
 
