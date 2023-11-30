@@ -53,10 +53,59 @@ The details about GPT-4 may or may not be correct. The problem anyway: The outpu
 Actually everything seems to be from Google somehow, with [Attention Is All You Need](https://arxiv.org/abs/1706.03762) and [Mixture-of-Experts (MoEs)](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html).
 But Google does not seem to be lucky, if this is true: [all authors of google's key "attention is all u need" paper have left](https://twitter.com/rachelmetz/status/1678813311528206358).
 
-
 ## You Can Do It Better ChatGPT!
 
 Sometimes, when nothing helps, you can motivate the LLM by spamming it with phrases like "you can do better" and reminding the context that the next output will be more like the one you want. It may seem awkward, but keep in mind that different prompt outputs are produced each time, differing slightly not only in kind, but also in accuracy. And here, what we have to expect is probably normal distributed. That means, with many trials, we might get lucky now and then and produce particularly good output results.
+
+## The GPT Output is Not Reproducible, Most of the Time!
+
+<p align="center">
+  <img src="https://github.com/grensen/prompting/blob/main/figures/reproducibility_floating_error_problem.png">
+</p>
+
+A big problem is the output of ChatGPT, which is not reproducible in most cases. This makes it difficult, especially for topics where you don't know enough to distinguish good and bad information. ChatGPT is, as I write this, one year old. It has changed in many ways over that time, which also requires us to adapt to keep pace. 
+
+## Floating Point Errors in Practice
+~~~cs
+float[] array = new float[10];
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = 0.01f * (i + 1);
+}
+float a = 0, b = 0;
+for (int i = 0; i < 10; i++)
+{
+    a += array[i];
+    b += array[9 - i];
+}
+System.Console.WriteLine("a = " + a + " b = " + b);
+// output: a = 0.55 b = 0.54999995
+~~~
+
+This is what happens in practice, but the order of calculation is broken by the many processors involved. About ~10% of the results seem to be affected, and that with an incredible amount of calculations. GPT-4 is rumored to be run with 175 trillion weights or parameters. The result is usually a different output with the same input prompt. 
+
+You can try this out on [Fiddle](https://dotnetfiddle.net/)
+
+<p align="center">
+  <img src="https://github.com/grensen/multi-core/blob/main/figures/dotnetfiddle_floating_point_issue.png?raw=true">
+</p>
+
+This problem is a fundamental one in our systems and is due to the fact that the conversion from 0s and 1s to floating point numbers is not completely round. 
+
+## What ChatGPT Says
+<p align="center">
+  <img src="https://github.com/grensen/multi-core/blob/main/figures/chatGPT_floating_point_issue.png?raw=true">
+</p>
+
+Well, how can we solve it? Perhaps a new development could be the solution, Analog Iterative Machines (AIM). But until then, it will be difficult to justify AI work as science. Somewhere it said that GPT-4 should get an adjustable seed, if that works reliably my thoughts could be obsolete.
+
+## LLM's Get Nerfed
+
+<p align="center">
+  <img src="https://github.com/grensen/multi-core/blob/main/figures/nerfed_llms.png?raw=true">
+</p>
+
+Due to the constant changes here and there, our experience with LLMs is also changing. One problem for the providers such as OpenAI are the enormous costs that increase with every additional use of ChatGPT and co. It seems tempting to make the model even more efficient and thus reduce the costs. But this also seems to lead to decreasing quality, as you could read in many tweets where people wondered whether LLMs were becoming dumb. These types of tweets pop up on my timeline throughout the year.
 
 ## Dont waste time!
 
