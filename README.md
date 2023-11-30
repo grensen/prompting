@@ -102,7 +102,7 @@ Well, how can we solve it? Perhaps a new development could be the solution, Anal
 ## LLM's Get Nerfed
 
 <p align="center">
-  <img src="https://github.com/grensen/multi-core/blob/main/figures/nerfed_llms.png?raw=true">
+  <img src="https://github.com/grensen/prompting/blob/main/figures/nerfed_llms.png">
 </p>
 
 Due to the constant changes here and there, our experience with LLMs is also changing. One problem for the providers such as OpenAI are the enormous costs that increase with every additional use of ChatGPT and co. It seems tempting to make the model even more efficient and thus reduce the costs. But this also seems to lead to decreasing quality, as you could read in many tweets where people wondered whether LLMs were becoming dumb. These types of tweets pop up on my timeline throughout the year.
